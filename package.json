@@ -1,0 +1,22 @@
+{
+  "name": "curso_node0",
+  "version": "1.0.0",
+  "description": "Desarrollando NODEjs desde 0",
+  "main": "index.js",
+  "scripts": {
+    "iniciar": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "echo \"Developing node desde 0\""
+  },
+  "author": "Diego Torres",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
