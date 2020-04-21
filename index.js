@@ -3,7 +3,9 @@
 const express = require('express');
 const _PORT = 3000;
 const app = express();
+const morgan = require('morgan');
 const bd = require('./config/database');
+const users = require('./rutas/users');
 
 /*
 app.set('view engine', 'ejs');
@@ -28,13 +30,25 @@ app.get('/', (req, res)=>{
 const prodrt = require('./rutas/ruta');
 const ordenrt = require('./rutas/orden');
 
+app.use(morgan('dev'));
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+
 app.get('/', (req, res) =>{
     res.send('<h1>Bienvenido a nuestra aplicacion</h1>');
 });
-
+app.use('/login', users);
 app.use('/productos', prodrt);
 app.use('/orden', ordenrt);
 
+
+//app.use(express.urlencoded({extended: false}));
+
+// app.use(morgan(logger, {
+//     function (req, res) {
+//         return res;
+//     }
+// }))
 
 app.use((req, res, next) =>{
     const error = new Error('No se encuentra');
